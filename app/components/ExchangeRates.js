@@ -2,12 +2,13 @@ import React from "react";
 import { StyleSheet, View, Text, FlatList, ActivityIndicator } from 'react-native';
 import { graphql, } from 'react-apollo';
 import gql from 'graphql-tag';
+import { formatNumber } from "../i18n";
 
 const renderItem = ({ item }) => {
     return (
         <View style={styles.listItem}>
             <Text style={styles.currency}>{item.currency}</Text>
-            <Text style={styles.rate}>{item.rate}</Text>
+            <Text style={styles.rate}>{formatNumber(item.rate)}</Text>
         </View>
     );
 };
@@ -49,13 +50,12 @@ const styles = StyleSheet.create({
         color: 'red'
     },
     listItem: {
-        padding: 10,
-        paddingLeft: 20,
-        paddingRight: 20,
-        height: 66,
+        padding: 20,
+        paddingLeft: 30,
+        paddingRight: 30,
         backgroundColor: "#fff",
         flexDirection: "row",
-        alignItems: "center",
+        alignItems: "baseline",
         borderBottomColor: "#e5e5e5",
         borderBottomWidth: 1,
     },
@@ -63,14 +63,16 @@ const styles = StyleSheet.create({
         fontSize: 21,
         fontWeight: "100",
         textAlign: "left",
-        color: '#222'
+        color: '#111',
+        letterSpacing: 3,
+        marginRight: 20,
     },
     rate: {
         fontSize: 24,
         fontWeight: "400",
         textAlign: "right",
-        color: "#999",
-        flex: 1
+        color: "#888",
+        flex: 1,
     }
 });
 
