@@ -7,7 +7,7 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from "react-apollo";
 import ExchangeRates from "./components/ExchangeRates";
@@ -20,9 +20,9 @@ export default class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
           <ExchangeRates />
-        </View>
+        </SafeAreaView>
       </ApolloProvider>
     );
   }
